@@ -1,0 +1,374 @@
+* {
+  margin: 0%;
+  padding: 0;
+}
+body {
+  width: 100vw;
+
+  box-sizing: border-box;
+  background: #f8f8f8;
+  overflow-x: hidden;
+}
+h1,
+h2,
+h3,
+h4,
+span {
+  font-family: "Antonio", sans-serif;
+}
+p,
+label,
+input,
+select {
+  font-family: "Roboto Condensed", sans-serif;
+}
+input,
+select {
+  font-size: 16px;
+}
+/*-----CONFIGURAÇÃO DO HEADER-----*/
+.container header {
+  max-width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 30px;
+  background: #f3f3f3;
+  border-bottom: 1px solid #c2c2c2;
+}
+.container header img {
+  width: 50px;
+}
+.container header h2 {
+  font-size: 20px;
+  color: #0a5f69;
+}
+.usuario {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 18px;
+  color: #0a5f69;
+  font-weight: 700;
+}
+
+/*-----CONFIGURAÇÃO DOS CARDS-------*/
+#recebido {
+  background: #0c9645c7;
+  color: #004c27;
+}
+#recebido:hover {
+  background: #15af55c7;
+}
+#receber {
+  background: #57bfff;
+  color: #254f69;
+}
+#receber:hover {
+  background: #45abeb;
+}
+#vencido {
+  background: #fcf5ad;
+  color: #858259;
+}
+#vencido:hover {
+  background: #ece6a5;
+}
+#cheque-vencido {
+  background: #854d6aec;
+  color: #672146;
+}
+#cheque-vencido:hover {
+  background: #915775ec;
+}
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 70px;
+
+  padding: 20px 50px;
+  border-bottom: 1px solid #c2c2c2;
+  background: #dddcdc;
+}
+.card {
+  width: 200px;
+  background: rgb(250, 250, 250);
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 13px #f5f5f5, -5px -5px 13px #fff;
+}
+.card-interno {
+  display: flex;
+  padding: 10px 0;
+  margin-right: 10px;
+  align-items: center;
+}
+.card-interno p {
+  margin-right: 10px;
+  margin-left: 7px;
+  color: #353434;
+  font-weight: 700;
+  font-size: 18px;
+}
+.card-interno span {
+  font-size: 24px;
+  font-weight: 700;
+  color: #353434;
+}
+
+/*----- CONFIGURAÇÃO DOS DADOS DE ENTRADA------*/
+.novos-dados {
+  width: 100%;
+  background: #eeeeee;
+  padding: 20px 0;
+}
+.entrar-dados {
+  max-width: 450px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  margin: 0 auto;
+  padding: 15px 0;
+  border: 2px solid rgb(201, 201, 201);
+  border-radius: 10px;
+  box-shadow: 5px 5px 13px #e6e5e5, -5px -5px 13px rgb(184, 181, 181);
+}
+.maior {
+  flex: 1;
+}
+.entrar-dados h2 {
+  text-align: center;
+  margin-bottom: 5px;
+  color: #0a5f69;
+}
+.form-row {
+  display: flex;
+}
+.form-col {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+.form-col input,
+select {
+  padding: 7px;
+  outline: none;
+  border: none;
+  border-radius: 7px;
+  color: #565a5a;
+  background: #dad8d8;
+}
+.form-col label {
+  font-size: 18px;
+  margin-left: 2px;
+  font-weight: 700;
+  color: #0a5f69;
+}
+.entrar-dados button {
+  max-width: 250px;
+  width: 80%;
+  margin: 0 auto;
+  padding: 8px;
+  outline: none;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  background: #004423;
+  color: #ffd700;
+  font-size: 18px;
+  font-weight: 700;
+  margin-top: 5px;
+}
+
+.entrar-dados button:hover {
+  background: #026334;
+}
+
+/*-----CONFIGURAÇÃO DA TABELA-----*/
+.tabela {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  align-items: center;
+  margin-top: 10px;
+}
+.header-tabela {
+  display: flex;
+  align-items: center;
+}
+.header-tabela label {
+  width: 120px;
+  padding: 10px;
+  text-align: center;
+  background: #0a5f69;
+  color: #fff;
+  font-weight: 700;
+}
+.header-tabela .descricao {
+  width: 170px;
+}
+.header-tabela .primeiro-header {
+  border-radius: 10px 0 0 0;
+}
+.header-tabela .ultimo-header {
+  border-radius: 0 10px 0 0;
+}
+
+.dados {
+  max-height: 150px;
+  overflow-y: scroll;
+}
+
+.exibir-dados {
+  display: flex;
+  justify-content: initial;
+  padding: 0;
+}
+.exibir-dados label {
+  width: 115.5px;
+  align-items: initial;
+  padding: 9.5px;
+  outline: none;
+  border: none;
+  background: #b0c5c7;
+  color: #515455;
+  font-weight: 700;
+}
+.exibir-dados .descricao {
+  width: 170px;
+}
+
+.exibir-dados label {
+  border-right: 2px solid white;
+  border-bottom: 3px solid #fff;
+  text-align: center;
+}
+
+#status-pago {
+  background: #00994f;
+  color: #fff;
+}
+#status-nao-pago {
+  background: #c72512;
+  color: #fff;
+}
+
+footer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+.top-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #0a5f69;
+  height: 70%;
+  padding: 10px 20px;
+}
+.div-posicao {
+  margin-right: 12%;
+}
+.dev-infos {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+}
+.dev {
+  display: flex;
+  font-weight: 500;
+}
+.bottom-footer {
+  display: flex;
+  justify-content: center;
+  background: #19808b;
+  height: 30%;
+  font-weight: 700;
+}
+.bottom-footer i {
+  margin-right: 5px;
+}
+
+@media only screen and (max-width: 770px) {
+  .cards {
+    grid-template-columns: repeat(2, 2fr);
+    gap: 15px;
+    padding: 2px;
+  }
+  .card {
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .container header img {
+    width: 30px;
+  }
+  .usuario {
+    display: none;
+  }
+  .container header h2 {
+    font-size: 15px;
+  }
+
+  .cards {
+    grid-template-columns: repeat(1, 4fr);
+    gap: 15px;
+    padding: 10px 2px;
+  }
+  .card {
+    justify-content: center;
+    padding: 2px;
+    align-items: center;
+    margin: 0 auto;
+  }
+  .entrar-dados {
+    max-width: 360px;
+  }
+  .form-col input {
+    width: 150px;
+  }
+  .tabela {
+    flex-direction: row;
+  }
+  .header-tabela {
+    flex-direction: column;
+  }
+  .header-tabela label {
+    width: 100px;
+  }
+  .header-tabela .descricao {
+    width: 100px;
+  }
+  .header-tabela .primeiro-header {
+    border-radius: 10px 10px 0 0;
+  }
+  .header-tabela .ultimo-header {
+    border-radius: 0 0 0 0;
+  }
+
+  .dados {
+    display: flex;
+    flex-direction: row;
+    max-height: 220px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    margin-top: 10px;
+  }
+  .exibir-dados {
+    flex-direction: column;
+  }
+  .exibir-dados label {
+    padding: 17px;
+  }
+  .exibir-dados .descricao {
+    width: 116px;
+  }
+  .exibir-dados label {
+    border-bottom: 3px solid #fff;
+  }
+}
