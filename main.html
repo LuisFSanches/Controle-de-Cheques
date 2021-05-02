@@ -1,17 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css" integrity="sha384-wESLQ85D6gbsF459vf1CiZ2+rr+CsxRY0RpiF1tLlQpDnAgg6rwdsUF1+Ics2bni" crossorigin="anonymous">    <title>Dashboard Admin</title>
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css"
+    integrity="sha384-wESLQ85D6gbsF459vf1CiZ2+rr+CsxRY0RpiF1tLlQpDnAgg6rwdsUF1+Ics2bni" crossorigin="anonymous">
+  <title>Dashboard Admin</title>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@300;400;700&family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Antonio:wght@300;400;700&family=Roboto+Condensed:wght@300;400;700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="./style.css">
-  
+
   <title>Controle de Cheques</title>
 </head>
+
 <body>
   <div class="container">
 
@@ -22,7 +29,7 @@
         <i class="fas fa-user"></i>
         <p>Bem Vindo!</p>
       </div>
-      
+
     </header>
 
     <div class="relatorio">
@@ -31,7 +38,7 @@
           <i class="fa fa-coins fa-2x"></i>
           <div class="card-interno">
             <p>Recebido</p>
-            <span>R$ 500</span>
+            <span id='txt_card_recebido'>R$ -</span>
           </div>
         </div>
 
@@ -39,7 +46,7 @@
           <i class="fas fa-hand-holding-usd fa-2x"></i>
           <div class="card-interno">
             <p>A receber</p>
-            <span>R$ 250</span>
+            <span id="txt_card_receber">R$ -</span>
           </div>
         </div>
 
@@ -47,7 +54,7 @@
           <i class="fas fa-comment-dollar fa-2x"></i>
           <div class="card-interno">
             <p>Vencidos</p>
-            <span>R$ 250</span>
+            <span id="txt_card_vencido">R$ -</span>
           </div>
         </div>
 
@@ -55,60 +62,60 @@
           <i class="fas fa-money-check fa-2x"></i>
           <div class="card-interno">
             <p>Cheques Vencidos</p>
-            <span>5</span>
+            <span id="txt_card_vencido_n">-</span>
           </div>
         </div>
       </div>
     </div>
 
     <div class="novos-dados">
-     
-    <div class="entrar-dados">
-      <h2>Novo Cheque</h2>
-      <div class="form-row">
-        <div class="form-col">
-          <label>Nº do Cheque</label>
-          <input type="text" id="pegar-n-cheque">
-        </div>
-  
-        <div class="form-col maior">
-          <label>Descrição</label>
-          <input type="text" id="pegar-descricao">
-        </div>
-      </div>
-      
-      <div class="form-row">
 
-        <div class="form-col ">
-          <label>Banco</label>
-          <input type="text" id="pegar-banco">
-        </div>
-  
-        <div class="form-col maior">
-          <label>Valor</label>
-          <input type="text" id="pegar-valor">
-        </div>
-      </div>
+      <div class="entrar-dados">
+        <h2>Novo Cheque</h2>
+        <div class="form-row">
+          <div class="form-col">
+            <label>Nº do Cheque</label>
+            <input type="text" id="ncheque_input_txt">
+          </div>
 
-      <div class="form-row">
-        <div class="form-col">
-          <label>Vencimento</label>
-          <input type="date" id="pegar-vencimento">
+          <div class="form-col maior">
+            <label>Descrição</label>
+            <input type="text" id="descri_input_txt">
+          </div>
         </div>
-  
-        <div class="form-col maior">
-          <label>Status</label>
-          <select id="pegar-status">
-            <option value="">Selecione</option>
-            <option value="pago">Pago</option>
-            <option value="nao-pago">Não Pago</option>
-          </select>
-        </div>
-      </div>
 
-      <button>Adicionar</button>
+        <div class="form-row">
+
+          <div class="form-col ">
+            <label>Banco</label>
+            <input type="text" id="banco_input_txt">
+          </div>
+
+          <div class="form-col maior">
+            <label>Valor</label>
+            <input type="text" id="valor_input_txt">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-col">
+            <label>Vencimento</label>
+            <input type="date" id="data_input_txt">
+          </div>
+
+          <div class="form-col maior">
+            <label>Status</label>
+            <select id="pegar-status">
+              <option value="">Selecione</option>
+              <option value="pago">Pago</option>
+              <option value="nao_pago">Não Pago</option>
+            </select>
+          </div>
+        </div>
+
+        <button onclick="addNewInfo()">Adicionar</button>
+      </div>
     </div>
-  </div>
 
     <div class="tabela">
 
@@ -121,72 +128,212 @@
         <label class="ultimo-header">Status</label>
       </div>
 
-      <div class="dados">
+      <div class="dados" id="div_dados">
 
-      <div class="exibir-dados">
-        <label id="n-cheque"> </label>
-        <label class="descricao" id="descricao"> </label>
-        <label id="banco"> </label>
-        <label id="valor"> </label>
-        <label id="vencimento"> </label>
-        <label id="status-pago">Pago</label>
+
+        <!-- <div class="exibir-dados">
+          <label id="n_cheque"> </label>
+          <label class="descricao" id="descricao"> </label>
+          <label id="banco"> </label>
+          <label id="valor"> </label>
+          <label id="vencimento"> </label>
+          <label id="status_pago">Pago</label>
+        </div>-->
+
+
       </div>
-
-      <div class="exibir-dados">
-        <label id="n-cheque"> </label>
-        <label class="descricao" id="descricao"> </label>
-        <label id="banco"> </label>
-        <label id="valor"> </label>
-        <label id="vencimento"> </label>
-        <label id="status-nao-pago">Não Pago</label>
-      </div>
-
-      <div class="exibir-dados">
-        <label id="n-cheque"> </label>
-        <label class="descricao" id="descricao"> </label>
-        <label id="banco"> </label>
-        <label id="valor"> </label>
-        <label id="vencimento"> </label>
-        <label id="status-nao-pago">Não Pago</label>
-      </div>
-
-  
-
     </div>
-  </div>
 
-  <footer>
-    <div class="top-footer">
-      <div class="div-posicao">
+    <footer>
+      <div class="top-footer">
+        <div class="div-posicao">
 
-      </div>
-      <div class="logo_e_titulo">
-        <h2>CONTROLE DE CHEQUES</h2>
-      </div>
-
-      <div class="dev-infos">
-       
-        <h2>Desenvolvido por</h2>
-        <div class="dev">
-        <i class="fab fa-github"></i>
-          <p>Luis Felipe Sanches</p>
+        </div>
+        <div class="logo_e_titulo">
+          <h2>CONTROLE DE CHEQUES</h2>
         </div>
 
-        <div class="dev">
-          <i class="fab fa-github"></i>
-          <p>Pedro Poaini</p>
+        <div class="dev-infos">
+
+          <h2>Desenvolvido por</h2>
+          <div class="dev">
+            <i class="fab fa-github"></i>
+            <p>Luis Felipe Sanches</p>
+          </div>
+
+          <div class="dev">
+            <i class="fab fa-github"></i>
+            <p>Pedro Poaini</p>
+          </div>
         </div>
+
       </div>
+      <div class="bottom-footer">
+        <i class="far fa-copyright"></i>
+        <p>Todos os direitos reservados 2021</p>
+      </div>
+    </footer>
 
-    </div>
-    <div class="bottom-footer">
-      <i class="far fa-copyright"></i>
-      <p>Todos os direitos reservados 2021</p>
-    </div>
-  </footer>
-
-   
   </div>
-  
+
+  <script>
+
+    // Global Var
+    let data_hoje = dataFormat()
+    let select_val
+    let valor_a_receber = Number()
+    let card_vencido_valor = Number()
+    let card_vencido_n = Number()
+
+
+
+    //Cards
+    var txt_card_recebido = document.getElementById('txt_card_recebido')
+    var txt_card_receber = document.getElementById('txt_card_receber')
+    var txt_card_vencido = document.getElementById('txt_card_vencido')
+    var txt_card_vencido_n = document.getElementById('txt_card_vencido_n')
+    //Input
+    var ncheque_input_txt = window.document.getElementById('ncheque_input_txt')
+    var descri_input_txt = window.document.getElementById('descri_input_txt')
+    var banco_input_txt = window.document.getElementById('banco_input_txt')
+    var valor_input_txt = window.document.getElementById('valor_input_txt')
+    var data_input_txt = window.document.getElementById('data_input_txt')
+    var soma_recebido = Number()
+
+    escolha()
+    //select event
+    function escolha() {
+
+
+      var opcao = window.document.getElementById('pegar-status')
+      return opcao.addEventListener('change', (e) => {
+
+        select_val = e.target.value
+
+        return select_val
+
+      })
+
+    }
+
+    function addNewInfo() {
+
+      //valores dos input's
+      var valor_input = Number(valor_input_txt.value)
+      var data_cheque = String(data_input_txt.value)
+      var ncheque = Number(ncheque_input_txt.value)
+      var descri_input = String(descri_input_txt.value)
+      var banco_input = String(banco_input_txt.value)
+
+
+      console.log(data_cheque)
+      console.log(select_val)
+      console.log(valor_input)
+      console.log(ncheque)
+      console.log(banco_input)
+      console.log(descri_input)
+
+      if (data_hoje <= data_cheque && select_val === 'pago') {
+
+
+        soma_recebido += valor_input
+        txt_card_recebido.innerHTML = `R$ ${soma_recebido}`
+
+
+      } else if (data_hoje <= data_cheque && select_val === 'nao_pago') {
+
+        card_vencido_valor += valor_input
+        card_vencido_n += 1
+        valor_a_receber += valor_input
+        txt_card_vencido.innerHTML = `R$ ${card_vencido_valor}`
+        txt_card_receber.innerHTML = `R$ ${valor_a_receber}`
+        txt_card_vencido_n.innerHTML = `${card_vencido_n}`
+
+
+      } else if (data_hoje > data_cheque && select_val === 'pago') {
+
+        soma_recebido += valor_input
+        txt_card_recebido.innerHTML = `R$ ${soma_recebido}`
+
+      } else if (data_hoje > data_cheque && select_val === 'nao_pago') {
+
+
+        card_vencido_valor += valor_input
+        card_vencido_n += 1
+        valor_a_receber += valor_input
+        txt_card_vencido.innerHTML = `R$ ${card_vencido_valor}`
+        txt_card_receber.innerHTML = `R$ ${valor_a_receber}`
+        txt_card_vencido_n.innerHTML = `${card_vencido_n}`
+
+
+
+      }
+
+      //Calculos para card
+
+
+
+      //Adicionando soma no card Recebidos
+
+
+      let div_dados = window.document.getElementById('div_dados')
+      let div_table = document.createElement('div')
+      let n_cheque_1 = document.createElement('label')
+      let descricao = document.createElement('label')
+      let banco = document.createElement('label')
+      let valor = document.createElement('label')
+      let vencimento = document.createElement('label')
+      let status_pago = document.createElement('label')
+
+
+      div_dados.className = 'dados'
+      div_table.className = 'exibir-dados'
+
+
+      n_cheque_1.innerText = ncheque
+      descricao.innerText = descri_input
+      banco.innerHTML = banco_input
+      valor.innerHTML = valor_input
+      vencimento.innerHTML = data_cheque
+      status_pago.innerHTML = select_val
+
+
+      div_dados.appendChild(div_table)
+      div_table.appendChild(n_cheque_1)
+      div_table.appendChild(descricao)
+      div_table.appendChild(banco)
+      div_table.appendChild(valor)
+      div_table.appendChild(vencimento)
+      div_table.appendChild(status_pago)
+
+
+
+
+    }
+
+    // div_tasks.appendChild(div_despesa)
+    //div_despesa.appendChild(label_despesa_d)
+    //var div2 = div_despesa.cloneNode(true);
+    //div_despesa.appendChild(label_despesa_v)
+
+
+
+    function dataFormat() {
+
+      var hoje = new Date();
+      var dd = String(hoje.getDate()).padStart(2, '0');
+      var mm = String(hoje.getMonth() + 1).padStart(2, '0'); //Janeiro é 0!
+      var yyyy = hoje.getFullYear();
+
+      hoje = yyyy + '-' + mm + '-' + dd;
+
+      return hoje
+
+    }
+
+
+  </script>
+
 </body>
+
 </html>
