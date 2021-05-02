@@ -233,30 +233,47 @@
       console.log(banco_input)
       console.log(descri_input)
 
-      if (data_hoje <= data_cheque ) {
-
-        
-        valor_a_receber += valor_input
-        txt_card_receber.innerHTML = `R$ ${valor_a_receber}`
-      
+      if (data_hoje <= data_cheque && select_val === 'pago') {
 
 
-      } else {
+        soma_recebido += valor_input
+        txt_card_recebido.innerHTML = `R$ ${soma_recebido}`
+
+
+      } else if (data_hoje <= data_cheque && select_val === 'nao_pago') {
 
         card_vencido_valor += valor_input
         card_vencido_n += 1
+        valor_a_receber += valor_input
         txt_card_vencido.innerHTML = `R$ ${card_vencido_valor}`
+        txt_card_receber.innerHTML = `R$ ${valor_a_receber}`
         txt_card_vencido_n.innerHTML = `${card_vencido_n}`
+
+
+      } else if (data_hoje > data_cheque && select_val === 'pago') {
+
+        soma_recebido += valor_input
+        txt_card_recebido.innerHTML = `R$ ${soma_recebido}`
+
+      } else if (data_hoje > data_cheque && select_val === 'nao_pago') {
+
+
+        card_vencido_valor += valor_input
+        card_vencido_n += 1
+        valor_a_receber += valor_input
+        txt_card_vencido.innerHTML = `R$ ${card_vencido_valor}`
+        txt_card_receber.innerHTML = `R$ ${valor_a_receber}`
+        txt_card_vencido_n.innerHTML = `${card_vencido_n}`
+
+
 
       }
 
-      //Calculos para cards
-      soma_recebido += valor_input
+      //Calculos para card
+
 
 
       //Adicionando soma no card Recebidos
-      txt_card_recebido.innerHTML = `R$ ${soma_recebido}`
-
 
 
       let div_dados = window.document.getElementById('div_dados')
